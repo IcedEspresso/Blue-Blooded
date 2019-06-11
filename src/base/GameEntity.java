@@ -1,6 +1,6 @@
 package base;
 
-public class GameEntity
+public abstract class GameEntity
 {
     private String name;
 
@@ -8,9 +8,4 @@ public class GameEntity
     {
         this.name = name;
     }
-
-//    public void use()
-//    {
-//
-//    }
 }

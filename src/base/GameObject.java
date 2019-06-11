@@ -1,15 +1,22 @@
 package base;
 
-public abstract class GameObject()
+public abstract class GameObject
 {
     private String name;
-    //private Boolean takeable;
+    private boolean takeable;
 
-    public GameObject(String name)
+    public GameObject(String name, boolean takeable)
     {
-        this.name = name;
+        this.name = name.toLowerCase();
+        this.takeable = takeable;
     }
 
-    public void use();
-    public void look();
+    public String getName()
+    {
+        return name;
+    }
+
+    public abstract void use();
+    public abstract void look();
+    public abstract String toString();
 }
