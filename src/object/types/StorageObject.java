@@ -60,13 +60,13 @@ public class StorageObject extends GameObject
 
     public void use()
     {
-        if(!opened)
+        if(opened)
         {
-            open();
+            close();
         }
         else
         {
-            close();
+            open();
         }
     }
 

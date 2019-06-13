@@ -11,9 +11,24 @@ public class Room
         this.name = name;
     }
 
+    public String getName()
+    {
+        return name;
+    }
+
     public void addObject(GameObject object)
     {
         roomItems.add(object);
+    }
+
+    public ArrayList<GameObject> getList()
+    {
+        return roomItems;
+    }
+
+    public GameObject getObject(int i)
+    {
+        return roomItems.get(i);
     }
 
     public String toString()
