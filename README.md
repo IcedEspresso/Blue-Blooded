@@ -1,4 +1,4 @@
-# BlueBlooded
+# Blue Blooded
 
 A remake of Kingdom Come: Deliverance('s Skalitz chapter) in text based form for a school project.
 
