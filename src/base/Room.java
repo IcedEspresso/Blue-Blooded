@@ -19,6 +19,13 @@ public class Room
     public void addObject(GameObject object)
     {
         roomItems.add(object);
+        object.setRoom(this);
+    }
+
+    public void removeObject(GameObject object)
+    {
+        roomItems.remove(object);
+        object.setRoom(new Room("Container"));
     }
 
     public ArrayList<GameObject> getList()

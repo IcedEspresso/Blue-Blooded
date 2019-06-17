@@ -38,6 +38,10 @@ public class StorageObject extends GameObject
             {
                 System.out.println("You've opened the " + getName());
                 opened = true;
+                for(int i = 0; i < contains.size(); i++)
+                {
+                    getRoom().addObject(contains.get(i));
+                }
             }
         }
         else
@@ -51,6 +55,16 @@ public class StorageObject extends GameObject
         {
             System.out.println("You closed the " + getName());
             opened = false;
+            for(int i = 0; i < contains.size(); i++)
+            {
+                for(int j = 0; j < getRoom().getList().size(); j++)
+                {
+                    if(contains.get(i) == getRoom().getObject(j))
+                    {
+                        getRoom().removeObject(getRoom().getList().get(j));
+                    }
+                }
+            }
         }
         else
         {
@@ -97,6 +111,18 @@ public class StorageObject extends GameObject
     public void addObject(GameObject x)
     {
         contains.add(x);
+        x.setContainer(this);
+    }
+
+    public void removeObject(GameObject x)
+    {
+        contains.remove(x);
+        x.setContainer(new StorageObject("Someplace else", false));
+    }
+
+    public boolean isEquipped()
+    {
+        return false;
     }
 
     public String toString()
