@@ -16,16 +16,25 @@ public class StorageObject extends GameObject
         this.openable = openable;
     }
 
+    /**
+     * @return if the storage object can be opened
+     */
     public boolean isOpenable()
     {
         return openable;
     }
 
+    /**
+     * @return if the storage object is open
+     */
     public boolean isOpen()
     {
         return opened;
     }
 
+    /**
+     * Allows the user to open the storage object if possible, allowing the objects inside to become accessible and taken
+     */
     public void open()
     {
         if(openable)
@@ -49,6 +58,10 @@ public class StorageObject extends GameObject
             System.out.println("This " + getName() + " cannot be opened.");
         }
     }
+
+    /**
+     * Closes the StorageObject, limiting access to the items from the player
+     */
     public void close()
     {
         if(opened)
@@ -72,6 +85,9 @@ public class StorageObject extends GameObject
         }
     }
 
+    /**
+     * Alternative, and simplified command to both open and close a storage container
+     */
     public void use()
     {
         if(opened)
@@ -84,6 +100,9 @@ public class StorageObject extends GameObject
         }
     }
 
+    /**
+     * Provides detail on the object, also prints out items inside the storageobject if it is OPEN
+     */
     public void look()
     {
         System.out.println("It's a " + getName());
@@ -108,18 +127,29 @@ public class StorageObject extends GameObject
         }
     }
 
+    /**
+     * Adds an object to the contents of its contains ArrayList
+     * @param x object to be added to a StorageObject's arraylist
+     */
     public void addObject(GameObject x)
     {
         contains.add(x);
         x.setContainer(this);
     }
 
+    /**
+     * Removes an object from the contents of its contains ArrayList
+     * @param x object to be removed from a StorageObject arraylist
+     */
     public void removeObject(GameObject x)
     {
         contains.remove(x);
         x.setContainer(new StorageObject("Someplace else", false));
     }
 
+    /**
+     * Useless
+     */
     public boolean isEquipped()
     {
         return false;

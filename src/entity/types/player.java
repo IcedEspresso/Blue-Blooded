@@ -11,12 +11,20 @@ public class Player extends GameEntity
 
     }
 
+    /**
+     * Moves the player to another room. ADDITIONALLY prints out that the player has been moved in comparison to setRoom
+     * @param room room to be moved to
+     */
     public void move(Room room)
     {
         super.setRoom(room);
         System.out.println("You've moved to " + room.getName());
     }
 
+    /**
+     * Allows the player to add an object into their inventory
+     * @param obj object to be taken by the entity
+     */
     public void take(GameObject obj)
     {
         if(obj.isTakeable())
@@ -60,6 +68,9 @@ public class Player extends GameEntity
 //        }
 //    }
 
+    /**
+     * Prints out a list for the user to easily view what is in their inventory, as well as what is currently equipped
+     */
     public void viewInventory()
     {
         System.out.println("You have " + getInventory().size() + " items in your inventory");

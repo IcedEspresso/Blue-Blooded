@@ -36,41 +36,68 @@ public abstract class GameEntity
         feet = new Clothing("Nothing", 0, "feet");
     }
 
+    /**
+     * Sets the room of a GameEntity, used for moving entities that are not the player
+     * @param newRoom the new room the entity will be in
+     */
     public void setRoom(Room newRoom)
     {
         currentRoom = newRoom;
     }
 
+    /**
+     * @return returns the entity's current room
+     */
     public Room getRoom()
     {
         return currentRoom;
     }
 
+    /**
+     * @return returns name of the entity
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * @return returns health of the entity
+     */
     public int getHealth()
     {
         return health;
     }
 
+    /**
+     * @return returns weaponDamage of the entity
+     */
     public int getAttack()
     {
         return weaponDamage;
     }
 
+    /**
+     * @return returns totalProtection of the entity
+     */
     public int getDefense()
     {
         return totalProtection;
     }
 
+    /**
+     * Sets the health of an entity
+     * @param newHealth an int that will replace the int of the current health of the entity
+     */
     public void setHealth(int newHealth)
     {
         health = newHealth;
     }
 
+    /**
+     * "Attacks" another entity, causing them to lose health based on this entity's weapon
+     * @param target The entity to be attacked
+     */
     public void attack(GameEntity target)
     {
         target.setHealth(target.getHealth() - weaponDamage);
@@ -85,8 +112,16 @@ public abstract class GameEntity
         }
     }
 
+    /**
+     * Allows entities to take an object, and put it in its inventory arraylist
+     * @param obj object to be taken by the entity
+     */
     public abstract void take(GameObject obj);
 
+    /**
+     * Allows entities to wear, or equip clothing. Will add to the entity's total protection based on the equipment's defense variable
+     * @param equipment a Clothing object, will be worn by the entity
+     */
     public void equip(Clothing equipment)
     {
         boolean inInventory = false;
@@ -191,6 +226,11 @@ public abstract class GameEntity
             System.out.println("You don't have this item");
         }
     }
+
+    /**
+     * Allows the entity to equip a weapon, replaces weaponDamage as well
+     * @param weapon the weapon the entity is going to use
+     */
     public void equip(Weapon weapon)
     {
         boolean inInventory = false;
@@ -229,6 +269,10 @@ public abstract class GameEntity
         }
     }
 
+    /**
+     * replaces the current weapon with fists, as well as weapon damage with int 1
+     * @param weapon the weapon to be unequipped
+     */
     public void unequip(Weapon weapon)
     {
         if(!currentWeapon.getName().equals("Fists"))
@@ -246,8 +290,14 @@ public abstract class GameEntity
         }
     }
 
+    /**
+     * Replace the current clothing in an area (head, torso, legs, feet) with "nothing", as well as lowering totalProtection
+     * @param clothing clothing to be removed
+     */
     public void unequip(Clothing clothing)
     {
+        totalProtection -= clothing.getProtection();
+
         if(clothing.getType().equals("head"))
         {
             if(!head.getName().equals("Nothing"))
@@ -287,7 +337,9 @@ public abstract class GameEntity
 
     }
 
-
+    /**
+     * @return returns the entities inventory
+     */
     public ArrayList<GameObject> getInventory()
     {
         return inventory;

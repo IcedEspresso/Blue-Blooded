@@ -21,7 +21,10 @@ public class Nonplayer extends GameEntity
     }
 
 
-
+    /**
+     * Allows the entity to take an object and add it to its inventory ArrayList
+     * @param obj object to be taken by the entity
+     */
     public void take(GameObject obj)
     {
         if(obj.isTakeable())
