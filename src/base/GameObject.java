@@ -8,6 +8,7 @@ public abstract class GameObject
     private Room currentRoom;
     private boolean takeable;
     private StorageObject container;
+    private boolean isContained = false;
     private String type;
 
     public GameObject(String name, boolean takeable)
@@ -19,6 +20,11 @@ public abstract class GameObject
     public boolean isTakeable()
     {
         return takeable;
+    }
+
+    public void setTakeable(boolean x)
+    {
+        takeable = x;
     }
 
     public void setRoom(Room room)
@@ -44,6 +50,12 @@ public abstract class GameObject
     public void setContainer(StorageObject container)
     {
         this.container = container;
+        isContained = true;
+    }
+
+    public boolean getIsContained()
+    {
+        return isContained;
     }
 
     public StorageObject getContainer()

@@ -17,7 +17,7 @@ public class Test
 
                                         //Loading Game Assets
         //Initializing Values
-        interactions = new String[]{"use", "look", "observe", "move", "open", "close", "take", "inventory", "equip", "wear", "wield", "unequip"};
+        interactions = new String[]{"use", "look", "observe", "move", "open", "close", "take", "inventory", "equip", "wear", "wield", "unequip", "attack"};
         input = null;
         sc = new Scanner(System.in);
 

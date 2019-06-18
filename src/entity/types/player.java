@@ -8,6 +8,7 @@ public class Player extends GameEntity
     public Player(String name, Room room)
     {
         super(name, room);
+
     }
 
     public void move(Room room)
@@ -30,9 +31,14 @@ public class Player extends GameEntity
                     objIndex = i;
                 }
             }
-
-            getRoom().getList().get(objIndex).getContainer().removeObject(obj);
-            getRoom().getList().remove(getRoom().getList().get(objIndex));
+            if(!getRoom().getList().get(objIndex).getIsContained())
+            {
+                getRoom().getList().remove(getRoom().getList().get(objIndex));
+            }
+            else {
+                getRoom().getList().get(objIndex).getContainer().removeObject(obj);
+                getRoom().getList().remove(getRoom().getList().get(objIndex));
+            }
 
             System.out.println("You took the " + obj.getName());
         }
@@ -42,17 +48,17 @@ public class Player extends GameEntity
         }
     }
 
-    public void take(GameObject obj, StorageObject storage)
-    {
-        if (obj.isTakeable()) {
-            getInventory().add(obj);
-            storage.removeObject(obj);
-
-            System.out.println("You took the " + obj.getName());
-        } else {
-            System.out.println("You cannot take that");
-        }
-    }
+//    public void take(GameObject obj, StorageObject storage)
+//    {
+//        if (obj.isTakeable()) {
+//            getInventory().add(obj);
+//            storage.removeObject(obj);
+//
+//            System.out.println("You took the " + obj.getName());
+//        } else {
+//            System.out.println("You cannot take that");
+//        }
+//    }
 
     public void viewInventory()
     {

@@ -5,6 +5,7 @@ public class Room
 {
     private String name;
     ArrayList<GameObject> roomItems = new ArrayList<GameObject>();
+    ArrayList<GameEntity> people = new ArrayList<GameEntity>();
 
     public Room(String name)
     {
@@ -28,9 +29,30 @@ public class Room
         object.setRoom(new Room("Container"));
     }
 
+    public void addEntity(GameEntity entity)
+    {
+        people.add(entity);
+    }
+
+    public void removeEntity(GameEntity entity)
+    {
+        for(int i = 0; i < people.size(); i++)
+        {
+            if(people.get(i) == entity)
+            {
+                people.remove(i);
+            }
+        }
+    }
+
     public ArrayList<GameObject> getList()
     {
         return roomItems;
+    }
+
+    public ArrayList<GameEntity> getPeople()
+    {
+        return people;
     }
 
     public GameObject getObject(int i)
@@ -49,6 +71,25 @@ public class Room
             }
             itemList += roomItems.get(i).toString();
         }
-        return "You see " + itemList;
+        if(itemList.equals(""))
+        {
+            itemList = "nothing";
+        }
+
+        String peopleList = "";
+        for(int i = 0; i < people.size(); i++)
+        {
+            if(i > 0)
+            {
+                peopleList += " and ";
+            }
+            peopleList += people.get(i).toString();
+        }
+        if(peopleList.equals(""))
+        {
+            peopleList = "no one";
+        }
+
+        return "You're in " + getName() + ". You see " + itemList + ". You also see " + peopleList + ".";
     }
 }

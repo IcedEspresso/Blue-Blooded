@@ -6,6 +6,7 @@ import java.util.*;
 public abstract class GameEntity
 {
     private String name;
+    private int health = 50;
     private Room currentRoom;
     private int totalProtection;
     private int weaponDamage;
@@ -48,6 +49,40 @@ public abstract class GameEntity
     public String getName()
     {
         return name;
+    }
+
+    public int getHealth()
+    {
+        return health;
+    }
+
+    public int getAttack()
+    {
+        return weaponDamage;
+    }
+
+    public int getDefense()
+    {
+        return totalProtection;
+    }
+
+    public void setHealth(int newHealth)
+    {
+        health = newHealth;
+    }
+
+    public void attack(GameEntity target)
+    {
+        target.setHealth(target.getHealth() - weaponDamage);
+
+        if(target.getName().toLowerCase().equals("player"))
+        {
+            System.out.println("You took " + weaponDamage + " damage!");
+        }
+        else
+        {
+            System.out.println("You dealt " + weaponDamage + " damage!");
+        }
     }
 
     public abstract void take(GameObject obj);
@@ -105,7 +140,7 @@ public abstract class GameEntity
             {
                 totalProtection -= head.getProtection();
                 head.setEquipped(false);
-                System.out.println("You unequipped a " + equipment.getName());
+                System.out.println("You unequipped a " + head.getName());
                 head = equipment;
                 totalProtection += head.getProtection();
                 head.setEquipped(true);
@@ -117,7 +152,7 @@ public abstract class GameEntity
             {
                 totalProtection -= torso.getProtection();
                 torso.setEquipped(false);
-                System.out.println("You unequipped a " + equipment.getName());
+                System.out.println("You unequipped a " + torso.getName());
                 torso = equipment;
                 totalProtection += torso.getProtection();
                 torso.setEquipped(true);
@@ -129,7 +164,7 @@ public abstract class GameEntity
             {
                 totalProtection -= legs.getProtection();
                 legs.setEquipped(false);
-                System.out.println("You unequipped a " + equipment.getName());
+                System.out.println("You unequipped a " + legs.getName());
                 legs = equipment;
                 totalProtection += legs.getProtection();
                 legs.setEquipped(true);
@@ -141,7 +176,7 @@ public abstract class GameEntity
             {
                 totalProtection -= feet.getProtection();
                 feet.setEquipped(false);
-                System.out.println("You unequipped a " + equipment.getName());
+                System.out.println("You unequipped a " + feet.getName());
                 feet = equipment;
                 totalProtection += feet.getProtection();
                 feet.setEquipped(true);
@@ -203,7 +238,7 @@ public abstract class GameEntity
             currentWeapon = new Weapon("Fists", 1);
             weaponDamage = currentWeapon.getDamage();
 
-            weapon.setEquipped(false);
+            weapon.setEquipped(true);
         }
         else
         {
