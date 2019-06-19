@@ -3,18 +3,22 @@ THIS IS A PROTOTYPE
 
 A remake of Kingdom Come: Deliverance('s Skalitz chapter) in text based form for a school project.
 
-Will eventually include combat, dialogue and some form of freedom around the village. May end up becoming my framework, or a baseline inspiration for future text based products I hope to create.
-
-Currently not implement are "dice roll" based combat, true interaction with NPCs, stats and skill (defense doesn't do anything yet), etc.
+Currently not implement are "dice roll" based combat, true interaction with NPCs, stats and skill (defense doesn't do anything yet), different paths to choose from (like choose your path books), etc.
 The product here is a skeleton, and a base of inspiration for future products, and potentially a finished version of this project. Will require a complete code overhaul in order to achieve a proper state of playability.
 
-During this journey I've learned a lot about game design, how to load assets like objects, and character. I did it completely wrong here but I can use this new knowledge for future games I may or may not make. So at least there's a silver lining!
+During this journey I've learned a lot about game design, and got a really good idea of how I should implement objects, characters and the player itself. I did it completely wrong here, shown by the fact that unique characters require a ridiculous amount of code in the Main.java file, but I can use this new knowledge for future games I may or may not make. So at least there's a silver lining!
+
+
+
 
 
 
 
 List of possible commands:
 use, look, observe, open, close, take, inventory, equip, wear, wield, unequip, move, attack, talk
+
+
+CAPITAL WORDS are key words that basically outline what you should type into the console.
 
 Walkthrough:
 You are woken up by your mom and are told to put on some clothes from your chest, go talk to your father at the smithy and 'avoid' the shady man at the town square.
@@ -43,5 +47,5 @@ LOOK will tell you that there's a Henry's chest and a Henry's mom in the room.
  
 Exchange blows with Kunesh by ATTACKing him, he will eventually give up and you'll now be able to take your DAD'S HAMMER without any issues.
 
-The game should now end, thanks for playing Blue Blooded, a prototype, learning experience and framework for future projects!
+The game should now end, as all tasks have been exhausted. You can do everything in whichever order you'd like, but this tutorial was meant to be straight forward. Thanks for playing Blue Blooded, a prototype, learning experience and framework for future projects!
  
