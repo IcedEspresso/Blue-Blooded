@@ -1,5 +1,5 @@
 # Blue Blooded
-THIS IS A PROTOTYPE
+THIS IS A PROTOTYPE / HIGHSCHOOL PROJECT
 
 A remake of Kingdom Come: Deliverance('s Skalitz chapter) in text based form for a school project.
 
